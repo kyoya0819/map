@@ -5,17 +5,23 @@ import "leaflet/dist/leaflet.css";
 Leaflet.Icon.Default.imagePath =
   "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/";
 
+interface IPointDetail {
+  address?: string;
+  phone_number?: string;
+}
+
 interface INurserySchool {
   name: string;
   address: string;
   phoneNumber: string;
   lat: number;
   lon: number;
+  details: IPointDetail;
 }
 
 const loadFeatures = async () => {
-  const { data } = await axios.get(
-    "https://raw.githubusercontent.com/Code-for-Funabashi/kosodate-map/main/geodata/%E4%B8%80%E6%99%82%E4%BF%9D%E8%82%B2.csv"
+  const { data } = await axios.get<[INurserySchool]>(
+    "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%B8%80%E6%99%82%E4%BF%9D%E8%82%B2.json"
   );
   console.log(data);
   return data;
