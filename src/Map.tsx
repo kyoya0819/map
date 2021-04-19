@@ -7,7 +7,7 @@ import FeaturePoint from "./FeaturePoint";
 Leaflet.Icon.Default.imagePath =
   "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/";
 
-interface IFeatureList {
+interface IFeatureInfo {
   url: string;
   type: string;
 }
@@ -26,7 +26,7 @@ export interface IFeaturePoint {
   details: IFeaturePointDetail;
 }
 
-const featureList: [IFeatureList] = [
+const featureList: [IFeatureInfo] = [
   {
     url:
       "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%B8%80%E6%99%82%E4%BF%9D%E8%82%B2.json",
