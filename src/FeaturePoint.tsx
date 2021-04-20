@@ -1,5 +1,6 @@
 import { Marker, Popup } from "react-leaflet";
 import type { IFeaturePoint } from "./Map";
+
 const featurePoint = (props: { point: IFeaturePoint }) => {
   return (
     <Marker position={[props.point.lat, props.point.lng]}>
