@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import Leaflet from "leaflet";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -19,8 +19,6 @@ interface IFeaturePointDetail {
 
 export interface IFeaturePoint {
   name: string;
-  address: string;
-  phoneNumber: string;
   lat: number;
   lng: number;
   details: IFeaturePointDetail;
@@ -35,10 +33,7 @@ const featureList: [IFeatureInfo] = [
 ];
 
 const loadFeatures = async (url: string) => {
-  const res: AxiosResponse<[IFeaturePoint]> = await axios.get<[IFeaturePoint]>(
-    url
-  );
-  console.log(res.data);
+  const res = await axios.get<[IFeaturePoint]>(url);
   return res.data;
 };
 
@@ -50,6 +45,7 @@ const KosodateMap = () => {
   useEffect(() => {
     loadFeatures(featureList[0].url).then((data) => setFeatures(data));
   });
+
   return (
     <MapContainer
       center={position}
@@ -61,7 +57,9 @@ const KosodateMap = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <FeaturePoint point={features} />
+      {features.map((feature) => (
+        <FeaturePoint point={feature} />
+      ))}
     </MapContainer>
   );
 };

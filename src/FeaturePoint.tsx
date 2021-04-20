@@ -1,13 +1,14 @@
 import { Marker, Popup } from "react-leaflet";
 import type { IFeaturePoint } from "./Map";
-const featurePoint = (props: { point: IFeaturePoint[] }) => {
-  if (props.point.length === 0) {
-    return null;
-  }
+const featurePoint = (props: { point: IFeaturePoint }) => {
   return (
-    <Marker position={[props.point[0].lat, props.point[0].lng]}>
+    <Marker position={[props.point.lat, props.point.lng]}>
       <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
+        名前: {props.point.name}
+        <br />
+        住所: {props.point.details.address}
+        <br />
+        電話番号: {props.point.details.phone_number}
       </Popup>
     </Marker>
   );
