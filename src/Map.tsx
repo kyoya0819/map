@@ -7,11 +7,6 @@ import FeaturePoint from "./FeaturePoint";
 Leaflet.Icon.Default.imagePath =
   "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/";
 
-interface IFeatureInfo {
-  url: string;
-  type: string;
-}
-
 interface IFeaturePointDetail {
   address?: string;
   phone_number?: string;
@@ -24,7 +19,8 @@ export interface IFeaturePoint {
   details: IFeaturePointDetail;
 }
 
-const featureList: [IFeatureInfo] = [
+// XXX: データがmainにマージされたらmainブランチを参照するようにする。
+const featureList: { url: string; type: string }[] = [
   {
     url:
       "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%B8%80%E6%99%82%E4%BF%9D%E8%82%B2.json",
@@ -50,7 +46,7 @@ const KosodateMap = () => {
     <MapContainer
       center={position}
       zoom={13}
-      scrollWheelZoom={false}
+      scrollWheelZoom={true}
       style={{ height: "100vh" }}
     >
       <TileLayer
@@ -58,7 +54,7 @@ const KosodateMap = () => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {features.map((feature) => (
-        <FeaturePoint point={feature} />
+        <FeaturePoint point={feature} key={feature.name} />
       ))}
     </MapContainer>
   );
