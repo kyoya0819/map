@@ -11,6 +11,7 @@ const FeaturePoint = (props: {
     <Marker position={[props.point.lat, props.point.lng]} icon={props.icon}>
       <Popup>
         種別: {props.type}
+        <br />
         名前: {props.point.name}
         <br />
         住所: {props.point.details.address}
