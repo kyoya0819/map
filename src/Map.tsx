@@ -1,7 +1,7 @@
 import Leaflet from "leaflet";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import FeaturePoints from "./FeaturePoint";
+import FeaturePoints from "./FeaturePoints";
 Leaflet.Icon.Default.imagePath =
   "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/";
 
