@@ -1,9 +1,14 @@
-import Leaflet from "leaflet";
+import type { Icon } from "leaflet";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import FeaturePoints from "./FeaturePoints";
-Leaflet.Icon.Default.imagePath =
-  "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/";
+import { blueIcon, greenIcon } from "./Icons";
+
+export interface IFeatureInfo {
+  url: string;
+  type: string;
+  icon: Icon;
+}
 
 interface IFeaturePointDetail {
   address?: string;
@@ -18,16 +23,19 @@ export interface IFeaturePoint {
 }
 
 // XXX: データがmainにマージされたらmainブランチを参照するようにする。
-const featureList: { url: string; type: string }[] = [
-  {
-    url:
-      "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%B8%80%E6%99%82%E4%BF%9D%E8%82%B2.json",
-    type: "一時保育",
-  },
+// FIXME: 複数のtypeで位置情報が一致すると画面上わからなくなる。
+const featureList: IFeatureInfo[] = [
   {
     url:
       "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%BF%9D%E8%82%B2%E5%9C%92.json",
     type: "保育園",
+    icon: greenIcon,
+  },
+  {
+    url:
+      "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%B8%80%E6%99%82%E4%BF%9D%E8%82%B2.json",
+    type: "一時保育",
+    icon: blueIcon,
   },
 ];
 
@@ -46,7 +54,7 @@ const KosodateMap = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {featureList.map((feature) => FeaturePoints(feature.url))}
+      {featureList.map((feature) => FeaturePoints(feature))}
     </MapContainer>
   );
 };
