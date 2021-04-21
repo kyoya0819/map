@@ -1,12 +1,24 @@
 import axios from "axios";
 import type { Icon } from "leaflet";
 import { useState, useEffect } from "react";
-import { Point, IPoint } from "./Point";
+import { Point } from "./Point";
 
 export interface IPointMeta {
   url: string;
   type: string;
   icon: Icon;
+}
+
+interface IPointDetail {
+  address?: string;
+  phone_number?: string;
+}
+
+export interface IPoint {
+  name: string;
+  lat: number;
+  lng: number;
+  details: IPointDetail;
 }
 
 const loadFeatures = async (url: string) => {
