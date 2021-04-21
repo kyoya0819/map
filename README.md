@@ -8,3 +8,8 @@
 npm install
 npm run start
 ```
+
+## Testing
+```bash
+npm run test:nowatch
+```
