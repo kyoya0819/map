@@ -1,4 +1,4 @@
-import KosodateMap from "./Map";
+import KosodateMap from "./components/Map";
 
 const App = () => {
   return <KosodateMap />;
