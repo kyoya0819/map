@@ -1,12 +1,19 @@
 import type { Icon } from "leaflet";
-import type { IFeaturePoint } from "./Map";
 import { Marker, Popup } from "react-leaflet";
 
-const FeaturePoint = (props: {
-  point: IFeaturePoint;
-  type: string;
-  icon: Icon;
-}) => {
+export interface IPoint {
+  name: string;
+  lat: number;
+  lng: number;
+  details: IPointDetail;
+}
+
+interface IPointDetail {
+  address?: string;
+  phone_number?: string;
+}
+
+const Point = (props: { point: IPoint; type: string; icon: Icon }) => {
   return (
     <Marker position={[props.point.lat, props.point.lng]} icon={props.icon}>
       <Popup>
@@ -22,4 +29,4 @@ const FeaturePoint = (props: {
   );
 };
 
-export default FeaturePoint;
+export { Point };
