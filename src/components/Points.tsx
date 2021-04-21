@@ -14,7 +14,7 @@ const loadFeatures = async (url: string) => {
   return res.data;
 };
 
-const Points = (featureMeta: IPointMeta) => {
+export const Points = (featureMeta: IPointMeta) => {
   const [features, setFeatures] = useState<IPoint[]>([]);
 
   useEffect(() => {
@@ -30,5 +30,3 @@ const Points = (featureMeta: IPointMeta) => {
     />
   ));
 };
-
-export { Points };

@@ -13,7 +13,7 @@ interface IPointDetail {
   phone_number?: string;
 }
 
-const Point = (props: { point: IPoint; type: string; icon: Icon }) => {
+export const Point = (props: { point: IPoint; type: string; icon: Icon }) => {
   return (
     <Marker position={[props.point.lat, props.point.lng]} icon={props.icon}>
       <Popup>
@@ -28,5 +28,3 @@ const Point = (props: { point: IPoint; type: string; icon: Icon }) => {
     </Marker>
   );
 };
-
-export { Point };

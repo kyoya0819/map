@@ -5,7 +5,7 @@ import { blueIcon, greenIcon } from "./Icons";
 
 // XXX: データがmainにマージされたらmainブランチを参照するようにする。
 // FIXME: 複数のtypeで位置情報が一致すると画面上わからなくなる。
-export const pointCatalog: IPointMeta[] = [
+const pointCatalog: IPointMeta[] = [
   {
     url:
       "https://raw.githubusercontent.com/Code-for-Funabashi/Scrape-OpenData/kosodate-map/geodata/projects/kosodate-map/%E4%BF%9D%E8%82%B2%E5%9C%92.json",

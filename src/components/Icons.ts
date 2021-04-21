@@ -1,6 +1,6 @@
 import L from "leaflet";
 
-const greenIcon = new L.Icon({
+export const greenIcon = new L.Icon({
   iconUrl:
     "//raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
   shadowUrl:
@@ -11,7 +11,7 @@ const greenIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
-const blueIcon = new L.Icon({
+export const blueIcon = new L.Icon({
   iconUrl:
     "//raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
   shadowUrl:
@@ -21,5 +21,3 @@ const blueIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
-
-export { greenIcon, blueIcon };
