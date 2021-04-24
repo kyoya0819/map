@@ -19,3 +19,6 @@ jobs:
         npm install -D
         npx eslint './src/*.{ts,tsx}'
         npm run build
+    - name: test
+      run: |
+        npm run test:nowatch
