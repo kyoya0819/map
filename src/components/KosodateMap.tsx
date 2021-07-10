@@ -1,5 +1,6 @@
 import Map from "./Map";
 import { PointMeta } from "./PointLayer";
+import { PolygonMeta } from "./PolygonLayer";
 import { greenIcon, blueIcon } from "./Icons";
 
 const pointCatalog: PointMeta[] = [
@@ -35,8 +36,17 @@ const pointCatalog: PointMeta[] = [
   },
 ];
 
+const polygonCatalog: PolygonMeta[] = [
+  {
+    url:
+      "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/feature/add-gakku/data/kosodate-map/gakku.json",
+    type: "公民館",
+    // icon: "red",
+  },
+];
+
 const Kosodate = () => {
-  return <Map pointCatalog={pointCatalog} />;
+  return <Map pointCatalog={pointCatalog} polygonCatalog={polygonCatalog} />;
 };
 
 export default Kosodate;
