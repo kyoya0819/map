@@ -13,7 +13,7 @@ import { Polygon } from "react-leaflet";
 // TODO:
 // このIFいるんだっけか？react-leafletの利用方法確認してから考える。
 
-const purpleOptions = { color: "black" };
+const purpleOptions = { color: "purple" };
 
 // export interface Coordinate {
 //     lat: number;
