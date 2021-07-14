@@ -15,7 +15,6 @@ export interface PolygonInfo {
   name: string;
   coordinates: [number, number][];
 }
-const purpleOptions = { color: "purple" };
 
 const loadFeatures = async (url: string) => {
   const res = await axios.get<[PolygonInfo]>(url);
