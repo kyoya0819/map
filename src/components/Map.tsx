@@ -32,10 +32,6 @@ const Map = (props: {
       {props.pointCatalog.map((item) => PointLayer(item))}
 
       {props.polygonCatalog.map((item) => PolygonLayer(item))}
-      <Polygon
-        pathOptions={purpleOptions}
-        positions={sample_polygon_locations}
-      />
     </MapContainer>
   );
 };

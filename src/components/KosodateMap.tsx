@@ -40,7 +40,7 @@ const polygonCatalog: PolygonMeta[] = [
   {
     url:
       "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/feature/add-gakku/data/kosodate-map/gakku.json",
-    type: "公民館",
+    type: "学区",
     // icon: "red",
   },
 ];
