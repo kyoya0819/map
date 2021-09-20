@@ -2,6 +2,7 @@ import Map from "./Map";
 import { PointMeta } from "./PointLayer";
 import { PolygonMeta } from "./PolygonLayer";
 import { greenIcon, blueIcon } from "./Icons";
+import { shogakokkuOptions } from "./PolygonOptions";
 
 const pointCatalog: PointMeta[] = [
   {
@@ -40,8 +41,8 @@ const polygonCatalog: PolygonMeta[] = [
   {
     url:
       "https://raw.githubusercontent.com/Code-for-Funabashi/open-data-parser/feature/add-gakku/data/kosodate-map/gakku.json",
-    type: "学区",
-    // icon: "red",
+    type: "小学区",
+    option: shogakokkuOptions,
   },
 ];
 

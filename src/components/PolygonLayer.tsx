@@ -1,23 +1,21 @@
 import axios from "axios";
-// import type { Icon } from "leaflet";
 import { useState, useEffect } from "react";
-// import { Point } from "./Point";
-import { Area } from "./Polygon";
+import { _Polygon } from "./Polygon";
 
 export interface PolygonMeta {
   type: string;
   url: string;
+  option: {};
 }
 
 export interface PolygonInfo {
-  type: string;
+  type: any;
   name: string;
-  coordinates: [number, number][];
+  coordinates: number[][][];
 }
 
 const loadFeatures = async (url: string) => {
-  const res = await axios.get<[PolygonInfo]>(url);
-  console.log(res.data);
+  const res = await axios.get<PolygonInfo[]>(url);
   return res.data;
 };
 
@@ -28,10 +26,10 @@ export const PolygonLayer = (polygonMeta: PolygonMeta) => {
   }, [polygonMeta]);
 
   return features.map((feature) => (
-    <Area
+    <_Polygon
       coordinates={feature.coordinates}
-      type={feature.type}
-      key={feature.type}
+      name={feature.name}
+      option={polygonMeta.option}
     />
   ));
 };

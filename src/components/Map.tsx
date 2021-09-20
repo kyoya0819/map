@@ -1,17 +1,10 @@
-import { MapContainer, TileLayer, Polygon } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { PointLayer, PointMeta } from "./PointLayer";
 import { PolygonLayer, PolygonMeta } from "./PolygonLayer";
 
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
-
-const purpleOptions = { color: "purple" };
-const sample_polygon_locations: [number, number][] = [
-  [51.51, -0.12],
-  [51.51, -0.13],
-  [51.53, -0.13],
-];
 
 const Map = (props: {
   pointCatalog: PointMeta[];
