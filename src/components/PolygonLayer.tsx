@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { _Polygon } from "./Polygon";
+import { Area } from "./Polygon";
 
 export interface PolygonMeta {
   type: string;
@@ -26,7 +26,7 @@ export const PolygonLayer = (polygonMeta: PolygonMeta) => {
   }, [polygonMeta]);
 
   return features.map((feature) => (
-    <_Polygon
+    <Area
       coordinates={feature.coordinates}
       name={feature.name}
       option={polygonMeta.option}

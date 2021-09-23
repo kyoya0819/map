@@ -1,10 +1,6 @@
 import { Popup, Polygon } from "react-leaflet";
 
-export const _Polygon = (props: {
-  coordinates: any;
-  name: string;
-  option: {};
-}) => {
+export const Area = (props: { coordinates: any; name: string; option: {} }) => {
   return (
     <Polygon pathOptions={props.option} positions={props.coordinates}>
       <Popup>
