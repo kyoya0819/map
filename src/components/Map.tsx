@@ -1,4 +1,9 @@
-import { MapContainer, TileLayer } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  LayersControl,
+  LayerGroup,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { PointLayer, PointMeta } from "./PointLayer";
 
@@ -18,7 +23,15 @@ const Map = (props: { pointCatalog: PointMeta[] }) => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors | <a href="http://code4funabashi.org/">CodeForFunabashi</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {props.pointCatalog.map((item) => PointLayer(item))}
+      <LayersControl position="topright">
+        {props.pointCatalog.map((item) => {
+          return (
+            <LayersControl.Overlay name={item.type} checked>
+              <LayerGroup>{PointLayer(item)}</LayerGroup>
+            </LayersControl.Overlay>
+          );
+        })}
+      </LayersControl>
     </MapContainer>
   );
 };
