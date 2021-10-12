@@ -1,6 +1,9 @@
-import Map from "./Map";
-import { PointMeta } from "./PointLayer";
-import { greenIcon, blueIcon } from "./Icons";
+import React, { FC } from "react";
+
+import { PointMeta } from "types/Point";
+
+import Map from "components/Map/Map";
+import { greenIcon, blueIcon } from "components/Map/Icons";
 
 const pointCatalog: PointMeta[] = [
   {
@@ -35,8 +38,7 @@ const pointCatalog: PointMeta[] = [
   },
 ];
 
-const Kosodate = () => {
+const Index: FC = () => {
   return <Map pointCatalog={pointCatalog} />;
 };
-
-export default Kosodate;
+export default Index;

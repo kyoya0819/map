@@ -5,7 +5,10 @@ import {
   LayerGroup,
 } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { PointLayer, PointMeta } from "./PointLayer";
+
+import { PointMeta } from "types/Point";
+
+import { PointLayer } from "./PointLayer";
 
 //船橋市役所のlat lon
 const position: [number, number] = [35.694722, 139.9825];
